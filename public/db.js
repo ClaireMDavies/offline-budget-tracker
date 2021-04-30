@@ -2,17 +2,14 @@ let db;
 // create a new db request for a "budget" database.
 const request = indexedDB.open("budget", 1);
 
-//create schema
-request.onupgradeneeded = ({target}) => {
-  const db = target.result;
-
-  // create object store 
+request.onupgradeneeded = function(event) {
+   // create object store called "pending" and set autoIncrement to true
+  const db = event.target.result;
   db.createObjectStore("pending", { autoIncrement: true });
 };
 
-//create transaction
-request.onsuccess = () =>{
-  db = request.result;
+request.onsuccess = function(event) {
+  db = event.target.result;
 
   // check if app is online before reading from db
   if (navigator.onLine) {
@@ -20,12 +17,10 @@ request.onsuccess = () =>{
   }
 };
 
-//notify of error
-request.onerror = ({target}) => {
-  console.log("Oh no! " + target.errorCode);
+request.onerror = function(event) {
+  console.log("Woops! " + event.target.errorCode);
 };
 
-//saving data to object store
 function saveRecord(record) {
   // create a transaction on the pending db with readwrite access
   const transaction = db.transaction(["pending"], "readwrite");
