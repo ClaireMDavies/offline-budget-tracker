@@ -3,7 +3,7 @@
     "short_name": "Budget Tracker",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "green",
+    "background_color": "#fff",
     "theme_color": "#fff",
     "description": "Budget tracker app for travellers",
     "icons": [{
@@ -17,6 +17,5 @@
         "type": "image/png"
     }
 ]
-
-    
+   
 }
