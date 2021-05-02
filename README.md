@@ -22,7 +22,7 @@ It can be run locally from the github repository, once packages are installed an
 
 ## Usage
 
-The live deployed site is found at:
+The live deployed site is found at: https://pacific-gorge-99762.herokuapp.com/
 
 A screenshot of the tracker app
 
